@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Match History - Resume Analyzer</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>📜 Analysis History</h2>
+
+      <p style="text-align: center; color: #718096; margin-bottom: 25px">
+        View all your previous resume analysis results
+      </p>
+
+      {% if records %}
+      <div style="overflow-x: auto">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Filename</th>
+              <th>Match Score</th>
+              <th>Missing Skills</th>
+              <th>Date & Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in records %}
+            <tr>
+              <td><strong>#{{ row[0] }}</strong></td>
+              <td>
+                <span style="color: #667eea; font-weight: 500">
+                  📄 {{ row[1] }}
+                </span>
+              </td>
+              <td>
+                {% if row[2] >= 80 %}
+                <span
+                  style="
+                    background: #c6f6d5;
+                    color: #22543d;
+                    padding: 5px 12px;
+                    border-radius: 15px;
+                    font-weight: 600;
+                  "
+                >
+                  {{ row[2] }}%
+                </span>
+                {% elif row[2] >= 60 %}
+                <span
+                  style="
+                    background: #bee3f8;
+                    color: #2c5282;
+                    padding: 5px 12px;
+                    border-radius: 15px;
+                    font-weight: 600;
+                  "
+                >
+                  {{ row[2] }}%
+                </span>
+                {% elif row[2] >= 40 %}
+                <span
+                  style="
+                    background: #feebc8;
+                    color: #7c2d12;
+                    padding: 5px 12px;
+                    border-radius: 15px;
+                    font-weight: 600;
+                  "
+                >
+                  {{ row[2] }}%
+                </span>
+                {% else %}
+                <span
+                  style="
+                    background: #fed7d7;
+                    color: #742a2a;
+                    padding: 5px 12px;
+                    border-radius: 15px;
+                    font-weight: 600;
+                  "
+                >
+                  {{ row[2] }}%
+                </span>
+                {% endif %}
+              </td>
+              <td>
+                {% if row[3] == "None" or row[3] == "" %}
+                <span style="color: #48bb78">✅ All skills matched</span>
+                {% else %}
+                <span style="color: #718096; font-size: 13px"
+                  >{{ row[3] }}</span
+                >
+                {% endif %}
+              </td>
+              <td style="color: #718096; font-size: 13px">
+                {{ row[4].strftime('%b %d, %Y %I:%M %p') }}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div class="empty-state">
+        <p style="font-size: 1.1rem; color: #718096">
+          No analysis history yet. Upload a resume to get started!
+        </p>
+      </div>
+      {% endif %}
+
+      <div style="text-align: center; margin-top: 30px">
+        <a href="/"> ← Back to Upload </a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Matcher - ATS Analyzer</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>🧾 Resume Matching System</h2>
+
+      <p style="text-align: center; color: #718096; margin-bottom: 30px">
+        Upload your resume and job description to analyze compatibility
+      </p>
+
+      <!-- Flash Messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <div
+        style="
+          background: #fed7d7;
+          color: #742a2a;
+          padding: 12px 20px;
+          border-radius: 8px;
+          margin-bottom: 20px;
+          border-left: 4px solid #fc8181;
+        "
+      >
+        ⚠️ {{ message }}
+      </div>
+      {% endfor %} {% endif %} {% endwith %}
+
+      <form method="POST" enctype="multipart/form-data">
+        <!-- File Upload -->
+        <div>
+          <label
+            style="
+              display: block;
+              margin-bottom: 8px;
+              color: #2d3748;
+              font-weight: 600;
+            "
+          >
+            📄 Upload Resume (PDF/DOCX)
+          </label>
+          <input type="file" name="resume" accept=".pdf,.docx" required />
+          <small style="color: #718096; display: block; margin-top: 5px">
+            Supported formats: PDF, DOCX (Max 10MB)
+          </small>
+        </div>
+
+        <!-- Job Description -->
+        <div>
+          <label
+            style="
+              display: block;
+              margin-bottom: 8px;
+              color: #2d3748;
+              font-weight: 600;
+            "
+          >
+            📋 Job Description
+          </label>
+          <textarea
+            name="job_desc"
+            rows="8"
+            placeholder="Paste the complete job description here..."
+            required
+          ></textarea>
+          <small style="color: #718096; display: block; margin-top: 5px">
+            Include required skills, qualifications, and responsibilities
+          </small>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">🔍 Analyze Match</button>
+      </form>
+
+      <!-- History Link -->
+      <div style="text-align: center; margin-top: 20px">
+        <a href="/history" style="display: inline-block">
+          📊 View Analysis History
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

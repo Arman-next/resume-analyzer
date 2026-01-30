@@ -1,0 +1,49 @@
+# Virtual Environment (CRITICAL!)
+venv/
+env/
+ENV/
+.venv
+venv.bak/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+.Python
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv
+
+# Uploaded files
+uploads/
+*.pdf
+*.docx
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Database
+*.db
+*.sqlite
+*.sql
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini

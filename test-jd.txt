@@ -1,0 +1,97 @@
+Test Case 1: Python Developer (Medium Match Expected)
+
+Job Title: Frontend / Full-Stack JavaScript Developer (Entry Level)
+
+We are looking for a motivated Frontend / Full-Stack Developer to join our development team. The candidate should have hands-on experience with modern JavaScript frameworks and basic backend knowledge.
+
+Required Skills:
+
+JavaScript
+
+React.js
+
+Next.js
+
+HTML, CSS
+
+Redux
+
+Node.js (basic)
+
+MySQL or PostgreSQL
+
+REST API integration
+
+Responsibilities:
+
+Develop responsive web applications using React and Next.js
+
+Implement state management using Redux
+
+Integrate frontend with backend services and APIs
+
+Work with databases for CRUD operations
+
+Optimize UI performance and user experience
+
+------------------------------------------------------------------------------------------
+
+
+Test Case 2: Data Scientist (Low Match Expected - Different Skills)
+
+Job Title: DevOps Engineer
+
+Job Description:
+
+We are looking for a DevOps Engineer responsible for managing cloud infrastructure and deployment pipelines.
+
+Required Skills:
+
+AWS
+
+Docker
+
+Kubernetes
+
+CI/CD
+
+Linux
+
+Responsibilities:
+
+Manage cloud infrastructure
+
+Implement CI/CD pipelines
+
+Monitor and maintain deployment systems
+---------------------------------------------------------------------------------------
+
+Test Case 3: Full Stack Developer (High Match Expected)
+
+Job Title: Frontend Developer (React)
+
+Job Description:
+
+We are looking for a Frontend Developer with experience in building user interfaces using modern JavaScript frameworks.
+
+Required Skills:
+
+JavaScript
+
+React.js
+
+HTML
+
+CSS
+
+Redux
+
+Responsibilities:
+
+Develop frontend components using React.js
+
+Manage application state using Redux
+
+Design responsive web pages using HTML and CSS
+
+
