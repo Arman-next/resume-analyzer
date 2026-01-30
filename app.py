@@ -163,7 +163,4 @@ def history():
         return redirect(url_for("index"))
 
 if __name__ == "__main__":
-    if not os.path.exists('.env'):
-        print("WARNING: .env file not found! Using default values.")
-    
-    app.run(debug=True)
+    app.run()
