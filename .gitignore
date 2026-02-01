@@ -39,6 +39,7 @@ Thumbs.db
 *.db
 *.sqlite
 *.sql
+database.db
 
 # Logs
 *.log
