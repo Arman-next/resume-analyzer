@@ -1,5 +1,9 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
-import mysql.connector
+# import mysql.connector
+
+import psycopg2
+from psycopg2.extras import RealDictCursor
+
 import os
 from dotenv import load_dotenv
 from utils.text_extraction import extract_text
@@ -20,15 +24,24 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 # Database connection function using environment variables
+# def get_db_connection(): // old
+#     return mysql.connector.connect(
+#         host=os.getenv('DB_HOST', 'localhost'),
+#         user=os.getenv('DB_USER', 'root'),
+#         password=os.getenv('DB_PASSWORD'),
+#         database=os.getenv('DB_NAME', 'resume_db')
+#     )
+
 def get_db_connection():
     try:
-        return mysql.connector.connect(
-            host=os.getenv('DB_HOST', 'localhost'),
-            user=os.getenv('DB_USER', 'root'),
+        return psycopg2.connect(
+            host=os.getenv('DB_HOST'),
+            database=os.getenv('DB_NAME'),
+            user=os.getenv('DB_USER'),
             password=os.getenv('DB_PASSWORD'),
-            database=os.getenv('DB_NAME', 'resume_db')
+            port=os.getenv('DB_PORT', 5432)
         )
-    except mysql.connector.Error as err:
+    except psycopg2.Error as err:
         print(f"Database connection error: {err}")
         raise
 
@@ -95,7 +108,8 @@ def index():
 
             # Store in database
             db = get_db_connection()
-            cursor = db.cursor()
+            # cursor = db.cursor() //old
+            cursor = db.cursor(cursor_factory=RealDictCursor)
             
             cursor.execute(
                 "INSERT INTO results (filename, match_score, missing_skills) VALUES (%s, %s, %s)",
