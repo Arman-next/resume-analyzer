@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="container">
-      <h2>🎯 Resume Matching System</h2>
+      <h2>🧾 Resume Matching System</h2>
 
       <p style="text-align: center; color: #718096; margin-bottom: 30px">
         Upload your resume and job description to analyze compatibility
@@ -68,14 +68,7 @@
           <textarea
             name="job_desc"
             rows="8"
-            placeholder="Paste the complete job description here...
-
-Example:
-We are looking for a Python Developer with experience in:
-- Python, Flask, Django
-- MySQL, PostgreSQL
-- Machine Learning, Data Analysis
-- HTML, CSS, JavaScript"
+            placeholder="Paste the complete job description here..."
             required
           ></textarea>
           <small style="color: #718096; display: block; margin-top: 5px">
@@ -87,21 +80,11 @@ We are looking for a Python Developer with experience in:
         <button type="submit">🔍 Analyze Match</button>
       </form>
 
-      <!-- Info Box -->
-      <div
-        style="
-          background: #ebf8ff;
-          border-left: 4px solid #667eea;
-          padding: 15px;
-          border-radius: 8px;
-          margin-top: 30px;
-        "
-      >
-        <p style="color: #2c5282; margin: 0; font-size: 14px">
-          <strong>💡 How it works:</strong> Our system uses TF-IDF vectorization
-          and cosine similarity to calculate the match percentage between your
-          resume and job requirements.
-        </p>
+      <!-- History Link -->
+      <div style="text-align: center; margin-top: 20px">
+        <a href="/history" style="display: inline-block">
+          📊 View Analysis History
+        </a>
       </div>
     </div>
   </body>
